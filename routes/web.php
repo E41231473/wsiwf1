@@ -7,5 +7,9 @@ Route::get('/', function () {
 });
 
 Route::get('/foo', function () {
-    return view('hello world');
+    return "Hello World";
+});
+
+Route::get('user/{id}',function($id){
+    return 'User '.$id;
 });
