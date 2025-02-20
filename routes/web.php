@@ -13,3 +13,9 @@ Route::get('/foo', function () {
 Route::get('user/{id}',function($id){
     return 'User '.$id;
 });
+
+Route::get('/user/{name?}', function ($name = 'Guest') {
+    return 'Hello, ' . $name;
+});
+
+
