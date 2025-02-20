@@ -18,4 +18,6 @@ Route::get('/user/{name?}', function ($name = 'Guest') {
     return 'Hello, ' . $name;
 });
 
-
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
