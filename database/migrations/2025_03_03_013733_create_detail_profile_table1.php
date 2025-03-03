@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detail_profile', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('addres');
+        Schema::create('detail_profile_table1', function (Blueprint $table) {
+            $table->BigIncrements('id');
+            $table->string('address');
+            $table->string('nomor_tlp');
             $table->date('tll');
             $table->string('foto');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detail_profile');
+        Schema::dropIfExists('detail_profile_table1');
     }
 };
