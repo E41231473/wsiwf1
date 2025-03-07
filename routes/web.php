@@ -3,6 +3,9 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\backend\PengalamanKerjaController;
+use App\Http\Controllers\backend\PendidikanController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,4 +21,8 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'] );
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//acara13
+Route::resource('pengalaman_kerja', PengalamanKerjaController::class);
+Route::resource('pendidikan', PendidikanController::class);
