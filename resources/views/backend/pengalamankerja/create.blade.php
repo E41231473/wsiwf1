@@ -60,28 +60,37 @@
                     </div>
                     @endif
                     <div class="panel-body">
-    <div class="form">
-        <form class="form-validate form-horizontal" id="pengalaman_kerja_form" method="POST" action="{{ route('pengalaman_kerja.store') }}">
-            {!! csrf_field() !!}
-            <!-- nama -->
-            <div class="form-group ">
-                <label for="cname" class="control-label col-lg-2">Nama Perusahaan <span class="required">*</span></label>
+                    <div class="form">
+                    <form class="form-validate form-horizontal" id="pengalaman_kerja_form" method="POST"
+    action="{{ isset($pengalaman_kerja) ? route('pengalaman_kerja.update', $pengalaman_kerja->id) : route('pengalaman_kerja.store') }}">
+    {!! csrf_field() !!}
+
+    {!! isset($pengalaman_kerja) ? method_field('PUT') : '' !!}
+    <input type="hidden" name="id" value="{{ $pengalaman_kerja->id }}" /> <br/>
+    
+    <div class="form-group ">
+
+                <label for="cname" class="control-label col-lg-2">Nama Perusahaan <span 
+                class="required">*</span></label>
                 <div class="col-lg-10">
-                    <input class="form-control" id="nama" name="nama" minlength="5" type="text" required />
+                    <input class="form-control" id="nama" name="nama" minlength="5" type="text"
+                    value="{{ isset($pengalaman_kerja) ? $pengalaman_kerja->nama : '' }}" required />
                 </div>
             </div>
             <!-- jabatan -->
             <div class="form-group ">
                 <label for="cname" class="control-label col-lg-2">Jabatan <span class="required">*</span></label>
                 <div class="col-lg-10">
-                    <input class="form-control" id="jabatan" name="jabatan" minlength="2" type="text" required />
+                    <input class="form-control" id="jabatan" name="jabatan" minlength="2" type="text"
+                    value="{{ isset($pengalaman_kerja) ? $pengalaman_kerja->jabatan : '' }}" required />
                 </div>
             </div>
             <!-- tahun_masuk -->
             <div class="form-group ">
                 <label for="curl" class="control-label col-lg-2">Tahun Masuk <span class="required">*</span></label>
                 <div class="col-lg-10">
-                    <input id="tahun_masuk" type="text" name="tahun_masuk" class="form-control" required />
+                    <input id="tahun_masuk" type="text" name="tahun_masuk" class="form-control" 
+                    value="{{ isset($pengalaman_kerja) ? $pengalaman_kerja->tahun_masuk : '' }}"required />
                 </div>
             </div>
             <!-- tahun_selesai -->
@@ -89,7 +98,8 @@
             <div class="form-group ">
             <label for="curl" class="control-label col-lg-2">Tahun Selesai <span class="required">*</span></label>
             <div class="col-lg-10">
-                <input id="tahun_keluar" type="text" name="tahun_keluar" class="form-control" required>
+                <input id="tahun_keluar" type="text" name="tahun_keluar" class="form-control" 
+                value="{{ isset($pengalaman_kerja) ? $pengalaman_kerja->tahun_keluar : '' }}"required>
             </div>
         </div>
 

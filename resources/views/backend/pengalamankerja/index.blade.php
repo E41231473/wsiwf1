@@ -84,8 +84,6 @@
                                     <td>{{ $item->tahun_keluar }}</td>
                                     <td>
                                         <div class="btn_group">
-
-
                                             <form action="{{ route('pengalaman_kerja.destroy', $item->id)}}" method="POST">
                                                 <a class="btn btn-warning" href="{{ route('pengalaman_kerja.edit', $item->id)}}">
                                                     <i class="bi bi-pencil-square"></i>
