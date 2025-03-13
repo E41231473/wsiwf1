@@ -32,28 +32,9 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function login(Request $request){
-        $this->validate($request, [
-            'username' => 'required|string|min:6',
-        ]);
-
-        $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        $login = [
-            $loginType => $request->username,
-            'password' => $request->password
-        ];
-
-        if (auth()->attemt($login)) {
-            return redirect()->route('home');
-        }
-
-        return redirect()->route('login')->with(['error' => 'Email/Password salah!']);
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('auth')->only('logout');
     }
-    // public function __construct()
-    // {
-        
-    //     $this->middleware('guest')->except('logout');
-    //     $this->middleware('auth')->only('logout');
-    // }
-    
 }
